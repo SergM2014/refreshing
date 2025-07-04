@@ -1,0 +1,54 @@
+version: "3.8"
+services:
+  app:
+    container_name: app_r
+    extra_hosts:
+     - "host.docker.internal:host-gateway"
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    ports:
+       - '${APP_PORT:-80}:80'
+    expose:
+      - 9000
+    volumes:
+      - .:/var/www/html
+    networks:
+      - my_network_r
+
+  database:
+    container_name: database_r
+    image: mysql:8
+    restart: unless-stopped
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: refresh
+      MYSQL_DATABASE: refresh
+      MYSQL_USER: refresh
+      MYSQL_PASSWORD: refresh
+    networks:
+      - my_network_r
+
+  nginx:
+    container_name: nginx_r
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html/public
+    depends_on:
+      - app
+    networks:
+      - my_network_r
+
+networks:
+  my_network_r:
+    driver: bridge
+
+volumes:
+  mysql:
