@@ -15,6 +15,8 @@ Post('/admin/survey/delete', [ \Src\Actions\Survey::class, 'delete']);
 Get('/admin/survey/edit', [ \Src\Actions\Survey::class, 'edit']);
 Post('/admin/survey/update', [ \Src\Actions\Survey::class, 'update']);
 
+
+
 Any('/api/surveys', [ \Src\Actions\API::class, 'all']);
 Any('/api/survey/{argument}', [ \Src\Actions\API::class, 'get']);
 Any('/api/user/{argument}/survey', [ \Src\Actions\API::class, 'getByUserId']);
