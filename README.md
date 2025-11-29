@@ -3,7 +3,7 @@
 #### Setup:
 
 
-<!-- 1) git clone https://github.com/SergM2014/panda.git -->
+1) git clone https://github.com/SergM2014/refresh.git
 
 
 
@@ -11,16 +11,16 @@
 
     
 
-3) docker-compose up -d  
+3) docker compose up -d  
 
 
-4)  docker exec -i database mysql -upanda -ppanda panda < panda.sql
+4)  docker exec -i database mysql -urefresh -prefresh refresh < refresh.sql
 
 
 5) exit
 
 
-6) docker-compose exec app bash
+6) docker compose exec app bash
 
    
 
