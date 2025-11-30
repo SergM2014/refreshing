@@ -15,9 +15,9 @@ define('NOT_FOUND_ROUTE', [ Src\Actions\NotFound::class, 'report']);
 
 define('URL', 'http://localhost:8080');
 define('HOST', 'database'); 
-define('USER', 'panda'); 
-define('PASSWORD', 'panda'); 
-define('NAME_BD', 'panda');
+define('USER', 'refresh'); 
+define('PASSWORD', 'refresh'); 
+define('NAME_BD', 'refresh');
 
 define('DEBUG_MODE', true ); 
 
